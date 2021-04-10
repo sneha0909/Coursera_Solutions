@@ -106,9 +106,7 @@ function buildAndShowHomeHTML (categories) {
         categoryHtml,
         function (categoryHtml) {
           var chosenCategoryShortName =
-            chooseRandomCategory(categories,
-                                    categoriesTitleHtml,
-                                    categoryHtml);
+            chooseRandomCategory(categories);
           
         
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
