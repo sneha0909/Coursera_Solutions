@@ -102,8 +102,7 @@ function buildAndShowHomeHTML (categories) {
 
       
       
-          var chosenCategoryShortName =
-            chooseRandomCategory(categories)
+          var chosenCategoryShortName = chooseRandomCategory(categories)
           
         
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
@@ -125,10 +124,10 @@ function buildAndShowHomeHTML (categories) {
       //
       // var homeHtmlToInsertIntoMainPage = ....
 
-          var homeHtmlToInsertIntoMainPage =
+          var homeHtmlToInsertIntoMainPage =  insertProperty(homeHtml,"randomCategoryShortName",chosenCategoryShortName.short_name)
            
             // insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", menuItems[i].randomCategoryShortName);
-            insertProperty(homeHtml,"randomCategoryShortName",chosenCategoryShortName.short_name)
+        
 
 
       // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
