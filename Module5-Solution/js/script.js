@@ -102,9 +102,9 @@ function buildAndShowHomeHTML (categories) {
 
       
       // Retrieve single category snippet
-      //$ajaxUtils.sendGetRequest(
-       // categoryHtml,
-       // function (categoryHtml) {
+      $ajaxUtils.sendGetRequest(
+        categoryHtml,
+        function (categoryHtml) {
           var chosenCategoryShortName =
             chooseRandomCategory(categories,
                                     categoriesTitleHtml,
@@ -142,8 +142,8 @@ function buildAndShowHomeHTML (categories) {
       // ....
       insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
       //insertHtml("#main-content", chosenCategoryShortName);
-      //},
-       // false);
+      },
+        false);
 
     },
     false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
