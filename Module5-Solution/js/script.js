@@ -84,7 +84,11 @@ showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
   allCategoriesUrl,
   //[...],
-  buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
+  function (responseText) {
+    document.querySelector("#main-content")
+      .innerHTML = responseText;
+  },
+  //buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
   true); // Explicitly setting the flag to get JSON from server processed into an object literal
 });
 // *** finish **
