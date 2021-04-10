@@ -84,12 +84,9 @@ showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
   allCategoriesUrl,
   //[...],
-  function (responseText) {
-    document.querySelector("#main-content")
-      .innerHTML = responseText;
-  },
-  //buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
-  false); // Explicitly setting the flag to get JSON from server processed into an object literal
+
+  buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
+  true); // Explicitly setting the flag to get JSON from server processed into an object literal
 });
 // *** finish **
 
@@ -101,17 +98,17 @@ function buildAndShowHomeHTML (categories) {
   // Load home snippet page
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
-    //function (homeHtml) {
+    function (homeHtml) {
 
       
       // Retrieve single category snippet
-     // $ajaxUtils.sendGetRequest(
-       // categoryHtml,
-       // function (categoryHtml) {
-         // var chosenCategoryShortName =
-           // chooseRandomCategory(categories,
-                                    //categoriesTitleHtml,
-                                   // categoryHtml);
+      $ajaxUtils.sendGetRequest(
+        categoryHtml,
+        function (categoryHtml) {
+          var chosenCategoryShortName =
+            chooseRandomCategory(categories,
+                                    categoriesTitleHtml,
+                                    categoryHtml);
           
         
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
@@ -133,22 +130,22 @@ function buildAndShowHomeHTML (categories) {
       //
       // var homeHtmlToInsertIntoMainPage = ....
 
-         // var homeHtmlToInsertIntoMainPage = homeHtmlUrl;
-          // homeHtmlToInsertIntoMainPage =
-          //   insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", menuItems[i].randomCategoryShortName);
-           // insertProperty(homeHtmlToInsertIntoMainPage,"randomCategoryShortName");
+          var homeHtmlToInsertIntoMainPage = homeHtmlUrl;
+           homeHtmlToInsertIntoMainPage =
+             insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", menuItems[i].randomCategoryShortName);
+            insertProperty(homeHtmlToInsertIntoMainPage,"randomCategoryShortName");
 
 
       // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
       // Use the existing insertHtml function for that purpose. Look through this code for an example
       // of how to do that.
       // ....
-      //insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
+      insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
       //insertHtml("#main-content", chosenCategoryShortName);
-      //},
-        //false);
+      },
+        false);
 
-    //},
+    },
     false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
 }
 
