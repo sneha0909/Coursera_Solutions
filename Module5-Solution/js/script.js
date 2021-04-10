@@ -97,17 +97,17 @@ function buildAndShowHomeHTML (categories) {
   // Load home snippet page
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
-    function (homeHtml) {
+    //function (homeHtml) {
 
       
       // Retrieve single category snippet
-      $ajaxUtils.sendGetRequest(
-        categoryHtml,
-        function (categoryHtml) {
-          var chosenCategoryShortName =
-            chooseRandomCategory(categories,
-                                    categoriesTitleHtml,
-                                    categoryHtml);
+     // $ajaxUtils.sendGetRequest(
+       // categoryHtml,
+       // function (categoryHtml) {
+         // var chosenCategoryShortName =
+           // chooseRandomCategory(categories,
+                                    //categoriesTitleHtml,
+                                   // categoryHtml);
           
         
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
@@ -140,11 +140,11 @@ function buildAndShowHomeHTML (categories) {
       // of how to do that.
       // ....
       //insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
-      insertHtml("#main-content", chosenCategoryShortName);
-      },
-        false);
+      //insertHtml("#main-content", chosenCategoryShortName);
+      //},
+        //false);
 
-    },
+    //},
     false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
 }
 
